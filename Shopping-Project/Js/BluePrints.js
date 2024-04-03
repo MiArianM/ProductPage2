@@ -9,25 +9,50 @@ class Products {
   CreateProduct(Product) {
     const CardProduct = document.createElement("div");
     /* Image Section For Card */
-    const ProductImage = document.createElement("img");
-    ProductImage.src = Product.image;
-    ProductImage.alt = Product.alt;
+    const ProductImage = this.CreatingImage(Product);
     CardProduct.appendChild(ProductImage);
     /* Product Informations */
     const ProductInfo = document.createElement("div");
     /* Product Name */
-    const ProductName = document.createElement("h3");
-    ProductName.innerText = Product.name;
+    const ProductName = this.CreateProductName(Product);
     ProductInfo.appendChild(ProductName);
     /* --------------->Product Price and Button */
     const ProPrBu = document.createElement("div");
     /* Product Price */
-    const ProductPrice = document.createElement("span");
-    ProductPrice.innerText = Product.price + " $";
+    const ProductPrice = this.CreateProductPrice(Product);
     ProductInfo.appendChild(ProductPrice);
     /* Product Button */
+    const AddButton = this.CreateProductButton(Product);
+    /*Apply To Parents Lmao ! */
+    this.ApplyTime(CardProduct, ProductInfo, ProPrBu, ProductPrice, AddButton);
+  }
+  CreatingImage(Product) {
+    const { image, alt } = Product;
+    const ProductImage = document.createElement("img");
+    ProductImage.src = image;
+    ProductImage.alt = alt;
+    return ProductImage;
+  }
+  CreateProductName(Product) {
+    const { name } = Product;
+    const ProductName = document.createElement("h3");
+    ProductName.innerText = name;
+    return ProductName;
+  }
+  CreateProductPrice(Product) {
+    const { price } = Product;
+    const ProductPrice = document.createElement("span");
+    ProductPrice.innerText = price + " $";
+    return ProductPrice;
+  }
+  CreateProductButton(Product) {
+    const { id } = Product;
     const AddButton = document.createElement("button");
     AddButton.innerText = "+";
+    AddButton.setAttribute("data-set", id);
+    return AddButton;
+  }
+  ApplyTime(CardProduct, ProductInfo, ProPrBu, ProductPrice, AddButton) {
     ProPrBu.append(ProductPrice, AddButton);
     ProductInfo.appendChild(ProPrBu);
     CardProduct.appendChild(ProductInfo);
