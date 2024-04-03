@@ -732,7 +732,7 @@ nav ul li a:hover:after {
 }
 #Products div > div h3 {
   background-color: white;
-  width: 75%;
+  max-width: 310px;
   border-radius: 20px;
   margin-left: 1.55rem;
   text-align: center;
