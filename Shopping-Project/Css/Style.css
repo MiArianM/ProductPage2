@@ -45,8 +45,7 @@ main {
   padding: 0 8%;
   position: relative;
   z-index: 20000;
-  background: url("../Media/NextSI2.jpg") fixed;
-  background-position: 13cap -19cap;
+
   background-size: cover;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -54,3 +53,25 @@ main {
   grid-column-gap: 20px;
   grid-row-gap: 10px;
 }
+#CartTitle {
+  padding: 20px;
+  text-align: center;
+  background-color: #55328d;
+  border-radius: 20px;
+  color: white;
+  width: 450px;
+  font-size: 30px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+#SectionProducts {
+  background: url("../Media/NextSI2.jpg") fixed;
+  background-position: 0cap -19cap;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: fit-content;
+  align-items: center;
+}
+
