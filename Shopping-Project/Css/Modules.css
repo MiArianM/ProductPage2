@@ -1,3 +1,6 @@
+:root {
+  --initial-margin-left: 11rem;
+}
 .video-container {
   margin: -20px 140px;
   width: 70%;
@@ -724,7 +727,21 @@ nav ul li a:hover:after {
 .mainVideo {
   z-index: 10;
 }
-
+#Products > div {
+  border-radius: 20px;
+  -webkit-box-shadow: 0px 0px 0px 5px #6ca574, inset 0px 10px 27px -8px #141414,
+    inset 0px -10px 27px -8px #2e19a3,
+    inset -2px -4px 5px 3px rgba(0, 0, 0, 0.73);
+  box-shadow: 0px 0px 0px 5px #4a39a8, inset 0px 10px 27px -8px #141414,
+    inset 0px -10px 27px -8px #980fc2,
+    inset -2px -4px 5px 7px rgba(0, 0, 0, 0.73);
+  padding: 10px;
+  margin: 10px;
+  text-align: center;
+}
+#Products img {
+  border-radius: 70px;
+}
 #Products div > div > div {
   width: 22rem;
   display: flex;
@@ -732,9 +749,9 @@ nav ul li a:hover:after {
 }
 #Products div > div h3 {
   background-color: white;
-  max-width: 310px;
+  max-width: 330px;
   border-radius: 20px;
-  margin-left: 1.55rem;
+  margin-left: var(--initial-margin-left);
   text-align: center;
   padding: 2px 10px;
   font-family: "Michroma", sans-serif;
@@ -775,6 +792,121 @@ nav ul li a:hover:after {
 
 #Products div > div > div button:active {
   transform: scale(1.025);
+}
+#SectionProducts > div {
+  display: flex;
+  gap: 120px;
+  flex-wrap: wrap;
+  -webkit-box-shadow: 0px 0px 0px 5px #a0a0a0, inset 0px 10px 27px -8px #141414,
+    3px 2px 15px 5px rgba(255, 94, 215, 0.44),
+    3px 2px 15px 5px rgba(198, 176, 255, 0.44),
+    -4px -3px 0px 4px rgba(198, 176, 255, 0.77);
+  box-shadow: 0px 0px 0px 5px #a0a0a0, inset 0px 10px 27px -8px #141414,
+    3px 2px 15px 5px rgba(255, 94, 215, 0.44),
+    3px 2px 15px 5px rgba(198, 176, 255, 0.44),
+    -4px -3px 0px 4px rgba(198, 176, 255, 0.77);
+  padding: 50px;
+  background-color: #fff5fc;
+}
+#SectionProducts > div > div {
+  text-align: center;
+  padding: 20px;
+  -webkit-box-shadow: 3px 2px 15px 5px #fff5fc;
+  box-shadow: 3px 2px 15px 5px #fff5fc;
+  border: 2px solid wheat;
+  background-color: rgba(252, 248, 241, 0.801);
+  border-radius: 30px;
+}
+#SectionProducts img {
+  width: 150px;
+  border-radius: 20px;
+}
+#List > div > div > h3 {
+  padding: 20px;
+  clip-path: polygon(50% 29%, 100% 0, 100% 100%, 0 100%, 0% 43%, 0 0);
+  background-color: rgb(250, 234, 215);
+}
+#List > div > div > div > span {
+  border-radius: 49%;
+  padding: 15px 20px;
+  background-color: #fcc1c1;
+}
+.btn-addremove {
+  margin: 15px;
+  width: 45px;
+  border-radius: 20%;
+  background: linear-gradient(
+    0deg,
+    rgba(255, 151, 0, 1) 10%,
+    rgba(251, 75, 2, 1) 100%
+  );
+  line-height: 42px;
+  padding: 0;
+  border: none;
+}
+.btn-addremove span {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.btn-addremove:before,
+.btn-addremove:after {
+  position: absolute;
+  content: "";
+  right: 0;
+  bottom: 0;
+  background: rgba(251, 75, 2, 1);
+  box-shadow: -7px -7px 20px 0px rgba(255, 255, 255, 0.9),
+    -4px -4px 5px 0px rgba(255, 255, 255, 0.9),
+    7px 7px 20px 0px rgba(0, 0, 0, 0.2), 4px 4px 5px 0px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease;
+}
+.btn-addremove:before {
+  height: 0%;
+  width: 2px;
+}
+.btn-addremove:after {
+  width: 0%;
+  height: 2px;
+}
+.btn-addremove:hover {
+  color: rgba(251, 75, 2, 1);
+  background: transparent;
+}
+.btn-addremove:hover:before {
+  height: 100%;
+}
+.btn-addremove:hover:after {
+  width: 100%;
+}
+.btn-addremove span:before,
+.btn-addremove span:after {
+  position: absolute;
+  content: "";
+  left: 0;
+  top: 0;
+  border: rgba(251, 75, 2, 1) dotted 2px;
+  box-shadow: 7px -7px 20px 0px rgb(107, 22, 93),
+    -4px -4px 5px 0px rgba(255, 255, 255, 0.9),
+    7px 7px 20px 0px rgba(105, 5, 97, 0.697),
+    3px 3px 3px 0px rgba(179, 22, 139, 0.9);
+  transition: all 0.3s ease;
+}
+.btn-addremove span:before {
+  width: 1px;
+  border-radius: 222px;
+  height: 2%;
+}
+.btn-addremove span:after {
+  height: 2px;
+  width: 0%;
+}
+.btn-addremove span:hover:before {
+  height: 90%;
+}
+.btn-addremove span:hover:after {
+  width: 90%;
 }
 @media (max-width: 1024px) {
   .responsive-container-block.Container {
@@ -925,7 +1057,19 @@ nav ul li a:hover:after {
     margin-left: 0px;
   }
 }
-
+@media screen and (max-width: 2652px) {
+  #Products div > div h3 {
+    margin-left: calc((99vw - 2692px) * 0.15 + var(--initial-margin-left));
+  }
+  #Products div > div > div {
+    margin-left: calc((100vw - 2652px) * 0.14 + var(--initial-margin-left));
+  }
+}
+@media screen and (max-width: 1426px) {
+  #Products div > div h3 {
+    margin-left: var(--initial-margin-left) + calc((1406px - 100vw) * 0.05);
+  }
+}
 @media (max-width: 768px) {
   .allText {
     width: 100%;
