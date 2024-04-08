@@ -8,58 +8,58 @@
   },
   {
     "id": 2,
-    "name": "Pen",
+    "name": "BodySplash",
     "price": 3,
-    "image": "../Media/ProductImages/pen.png",
-    "alt": "pen product"
+    "image": "../Media/ProductImages/BodySplash.jpg",
+    "alt": "BodySplash product"
   },
   {
     "id": 3,
-    "name": "Note Book",
+    "name": "Hair",
     "price": 12,
-    "image": "../Media/ProductImages/note-book.png",
-    "alt": "note book product"
+    "image": "../Media/ProductImages/Hair.jpg",
+    "alt": "Hair product"
   },
   {
     "id": 4,
-    "name": "Colored Pencils",
+    "name": "Lak",
     "price": 11,
-    "image": "../Media/ProductImages/colored-pencils.png",
-    "alt": "colored pencils product"
+    "image": "../Media/ProductImages/Lak.jpg",
+    "alt": "Lak product"
   },
   {
     "id": 5,
-    "name": "Pencil",
+    "name": "Pad",
     "price": 3,
-    "image": "../Media/ProductImages/pencil.png",
-    "alt": "pencil product"
+    "image": "../Media/ProductImages/Pad.jpg",
+    "alt": "Pad product"
   },
   {
     "id": 6,
-    "name": "Ruler",
+    "name": "Perfume",
     "price": 8,
-    "image": "../Media/ProductImages/ruler.png",
-    "alt": "ruler product"
+    "image": "../Media/ProductImages/Perfume.JPEG",
+    "alt": "Perfume product"
   },
   {
     "id": 7,
-    "name": "Mug",
+    "name": "Rozh",
     "price": 17,
-    "image": "../Media/ProductImages/mug.png",
-    "alt": "mug product"
+    "image": "../Media/ProductImages/Rozh.jpg",
+    "alt": "Rozh product"
   },
   {
     "id": 8,
-    "name": "Eraser",
+    "name": "Spray",
     "price": 2,
-    "image": "../Media/ProductImages/eraser.png",
-    "alt": "eraser product"
+    "image": "../Media/ProductImages/Spray.jpg",
+    "alt": "Spray product"
   },
   {
     "id": 9,
-    "name": "Glue Stick",
+    "name": "Mozhe Stick",
     "price": 5,
-    "image": "../Media/ProductImages/glue-stick.png",
-    "alt": "glue stick product"
+    "image": "../Media/ProductImages/Mozhe.jpg",
+    "alt": "Mozhe product"
   }
 ]
