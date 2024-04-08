@@ -44,7 +44,7 @@ class Products {
   CreateProductPrice(Product) {
     const { price } = Product;
     const ProductPrice = document.createElement("span");
-    ProductPrice.innerText = price + " $";
+    ProductPrice.innerText = "$ " + price;
     return ProductPrice;
   }
   CreateProductButton(Product) {
@@ -60,7 +60,7 @@ class Products {
     CardProduct.appendChild(ProductInfo);
     this.CardPlace.appendChild(CardProduct);
   }
-  handleEvent() {
+  handleEvent(event) {
     const eve = event.target;
     if (eve.tagName === "BUTTON") {
       this.addToCart(eve.dataset.id);
@@ -78,8 +78,10 @@ class Cart {
     this.PriceOfProducts = PriceOfProducts;
     this.ProductBoughtList = [];
     this.FinalProductBoughtList = [];
+    this.ListOfProductsPlace.addEventListener("click", this);
   }
   ShowBoughtProduct() {
+    console.log(this.PriceOfProducts);
     this.FinalProductBoughtList = [...new Set(this.ProductBoughtList)];
     this.ListOfProductsPlace.innerHTML = "";
     this.FinalProductBoughtList.forEach((Product) => {
@@ -88,6 +90,7 @@ class Cart {
       ).length;
       this.CreateBoughtProductSection(Product, Quantity);
     });
+    this.CalculatePrice();
   }
   CreateBoughtProductSection(Product, Quantity) {
     const CardEle = document.createElement("div");
@@ -95,7 +98,6 @@ class Cart {
     CardEle.innerHTML += this.CreateInfoEle(Product);
     CardEle.innerHTML += this.CreateControlEle(Product, Quantity);
     this.ListOfProductsPlace.appendChild(CardEle);
-    console.log(Product);
   }
   CreateImgEle(data) {
     const { image, alt } = data;
@@ -109,7 +111,7 @@ class Cart {
     const InfoJSX = `
       <div>
         <h3>${name}</h3>
-        <p>${price} $</p>
+        <p>$ ${price}</p>
       </div>
     `;
     return InfoJSX;
@@ -119,14 +121,58 @@ class Cart {
     const ControlJSX = `
       <div>
         <div>
-        <button data-id = ${id} class="custom-btn btn-addremove"><span>-</span></button>
+        <button class="custom-btn btn-addremove"><span  data-id = ${id} >-</span></button>
         <span>${Quantity}</span>
-        <button data-id = ${id} class="custom-btn btn-addremove"><span>+</span></button>
+        <button class="custom-btn btn-addremove"><span  data-id = ${id} >+</span></button>
         </div>
         <button class = "explore" data-id = ${id}>Remove</button>
       </div>
     `;
     return ControlJSX;
+  }
+  handleEvent(event) {
+    const TextClicked = event.target.innerText;
+    const IdClicked = event.target.dataset.id;
+    this.CheckClickedButton(TextClicked, IdClicked);
+  }
+  CheckClickedButton(TextClicked, IdClicked) {
+    switch (TextClicked) {
+      case "+":
+        this.increaseValue(IdClicked);
+        break;
+      case "-":
+        this.decreaseValue(IdClicked);
+        break;
+      case "Remove":
+        this.RemoveValue(IdClicked);
+        break;
+    }
+  }
+  increaseValue(Productid) {
+    const Product = this.ProductBoughtList.find((p) => p.id === +Productid);
+    this.ProductBoughtList.push(Product);
+    this.ShowBoughtProduct();
+  }
+  decreaseValue(Productid) {
+    const Productindex = this.ProductBoughtList.findIndex(
+      (p) => p.id === +Productid
+    );
+    this.ProductBoughtList.splice(Productindex, 1);
+    this.ShowBoughtProduct();
+  }
+  RemoveValue(Productid) {
+    const NewProductList = this.ProductBoughtList.filter(
+      (p) => p.id !== +Productid
+    );
+    this.ProductBoughtList = NewProductList;
+    this.ShowBoughtProduct();
+  }
+  CalculatePrice() {
+    const AllBoughtProducts = this.ProductBoughtList.reduce(
+      (acc, cur) => (acc += cur.price),
+      0
+    );
+    this.PriceOfProducts.innerText = "$ " + AllBoughtProducts;
   }
 }
 export { Products as Products, Cart as Carting };
